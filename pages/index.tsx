@@ -12,6 +12,9 @@ import Footer from '../components/Footer';
 const Index = () => {
 	return (
 		<>
+			<Head>
+				<title>Scott Duller | Full Stack Web Developer</title>
+			</Head>
 			<Navbar />
 			<Hero />
 			<Space />

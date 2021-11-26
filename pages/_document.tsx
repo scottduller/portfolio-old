@@ -28,7 +28,7 @@ class MyDocument extends Document {
 					<link
 						href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap'
 						rel='stylesheet'
-					/>
+          />
 				</Head>
 				<body>
 					<Main />
