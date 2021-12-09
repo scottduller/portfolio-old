@@ -23,7 +23,7 @@ a:hover {
 	cursor: pointer;
 }
 
-#astronaut {
+.astronaut {
 	animation: MoveUpDown 5s linear infinite;
 }
 
@@ -35,4 +35,25 @@ a:hover {
 	50% {
 		transform: translateY(-10px);
 	}
+}
+
+#gradientSparkle {
+	-webkit-mask-image: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 1),
+		rgba(0, 0, 0, 0) 75%
+	);
+	mask-image: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 1),
+		rgba(0, 0, 0, 0) 75%
+	);
+}
+
+/* #leftAbout {
+	transform: translateX(-100%);
+} */
+
+#rightAbout {
+	transform: translateX(+100%);
 }

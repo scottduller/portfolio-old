@@ -1,4 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, {
+	useRef,
+	useEffect,
+	useState,
+	useLayoutEffect,
+} from 'react';
 import Image from 'next/image';
 import ReactSparkle from 'react-sparkle';
 
@@ -8,7 +13,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 const Hero = () => {
 	gsap.registerPlugin(ScrollTrigger);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const tl1 = gsap.timeline();
 
 		tl1.from('#heading1', {
@@ -45,50 +50,6 @@ const Hero = () => {
 			duration: 3,
 			ease: 'power3.out',
 		});
-
-		const tl2 = gsap.timeline({
-			scrollTrigger: {
-				trigger: '#space',
-				start: '-=100%',
-				end: '+=200%',
-				scrub: true,
-			},
-		});
-
-		tl2.to('#heading1', {
-			x: 100,
-			opacity: 0,
-			duration: 0.5,
-			ease: 'power3.out',
-		});
-
-		tl2.to('#heading2', {
-			x: 100,
-			opacity: 0,
-			duration: 0.5,
-			ease: 'power3.out',
-		});
-
-		tl2.to('#name', {
-			x: 100,
-			opacity: 0,
-			duration: 0.5,
-			ease: 'power3.out',
-		});
-
-		tl2.to('#paragraph', {
-			x: 100,
-			opacity: 0,
-			duration: 0.5,
-			ease: 'power3.out',
-		});
-
-		tl2.to('#astroContainer', {
-			x: -500,
-			opacity: 0,
-			duration: 3,
-			ease: 'power3.out',
-		});
 	}, []);
 
 	return (
@@ -103,7 +64,7 @@ const Hero = () => {
 				>
 					<div className='absolute bg-gray-900 opacity-50 rounded-full	w-96 h-96 self-center'></div>
 					<Image
-						id='astronaut'
+						className='astronaut'
 						src='/astronaut.svg'
 						alt='Astronaut'
 						layout='fill'

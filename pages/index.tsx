@@ -15,15 +15,7 @@ const Index = () => {
 			<Head>
 				<title>Scott Duller | Full Stack Web Developer</title>
 			</Head>
-			<Navbar />
-			<Hero />
-			<Space />
-			<About />
-			<Skyscrapers />
-			<Projects />
-			<Ground />
-			<Contact />
-			<Footer />
+			
 		</>
 	);
 };
