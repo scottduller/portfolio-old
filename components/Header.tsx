@@ -40,7 +40,7 @@ const Header = (props: any) => {
 						</div>
 						<div>
 							<label
-								className='relative flex flex-col w-[60px] cursor-pointer py-[10px] pl-[20px] md:hidden z-[10]'
+								className='relative flex flex-col bg-white w-[60px] cursor-pointer py-[10px] pl-[20px] md:hidden z-[10]'
 								htmlFor='check'
 							>
 								<input
