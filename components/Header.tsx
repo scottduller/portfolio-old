@@ -40,11 +40,11 @@ const Header = (props: any) => {
 						</div>
 						<div>
 							<label
-								className='relative flex flex-col bg-white w-[60px] cursor-pointer py-[10px] pl-[20px] md:hidden z-[10]'
+								className='relative flex flex-col  w-[60px] cursor-pointer py-[10px] pl-[20px] md:hidden z-[10]'
 								htmlFor='check'
 							>
 								<input
-									className='hamburgerCheck '
+									className='hamburgerCheck'
 									type='checkbox'
 									id='check'
 									checked={props.active}
@@ -67,7 +67,7 @@ const Header = (props: any) => {
 								></span>
 							</label>
 							<aside
-								className={`z-[9] justify-center items-center  fixed top-0 bottom-0 right-0 w-full sm:w-3/5 h-screen bg-illuminating ${
+								className={`z-[9] justify-center items-center bg-white fixed top-0 bottom-0 right-0 w-full sm:w-3/5 h-screen bg-illuminating ${
 									props.active ? 'flex' : 'hidden'
 								} md:hidden`}
 								id='sidebar'

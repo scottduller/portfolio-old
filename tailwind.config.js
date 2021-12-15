@@ -6,6 +6,16 @@ module.exports = {
 	],
 	darkMode: false,
 	theme: {
+		container: {
+			center: true,
+			padding: {
+				DEFAULT: '2.5rem',
+				// sm: '3rem',
+				// lg: '4rem',
+				// xl: '5rem',
+				// '2xl': '6rem',
+			},
+		},
 		extend: {
 			colors: {
 				primary: '#F5DF4D',
