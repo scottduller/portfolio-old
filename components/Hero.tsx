@@ -3,14 +3,14 @@ import Header from './Header';
 
 const Hero = (props: any) => {
 	return (
-		<div className='section align-top'>
+		<div className='section h-full align-top'>
 			<Header
 				fullpageApi={props.fullpageApi}
 				active={props.active}
 				setActive={props.setActive}
 			/>
 			<div
-				className={`container h-screen mx-auto ${
+				className={`container h-full mx-auto ${
 					props.active ? 'filter blur-[3px]' : ''
 				} flex items-center justify-center transition-all ease-in-out duration-100`}
 			>
