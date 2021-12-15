@@ -6,9 +6,12 @@ module.exports = {
 	],
 	darkMode: false,
 	theme: {
-		textColor: (theme) => theme('colors'),
-		textColor: {
-			illuminating: '#F5DF4D',
+		extend: {
+			colors: {
+				primary: '#F5DF4D',
+				secondary: '#48473f',
+				emphasis: '#4353A8',
+			},
 		},
 	},
 	variants: {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Contact = () => {
-	return <section className='w-screen h-screen'></section>;
+	return <div className='section' id='section4'></div>;
 };
 
 export default Contact;
