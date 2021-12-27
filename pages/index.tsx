@@ -35,6 +35,10 @@ const Index = () => {
 				)}
 				scrollOverflow
 				verticalCentered={false}
+				scrollingSpeed={400}
+				css3
+				loopBottom
+				fitToSectionDelay={0}
 				render={({ state, fullpageApi }) => {
 					return (
 						<>
