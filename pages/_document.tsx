@@ -28,7 +28,17 @@ class MyDocument extends Document {
 					<link
 						href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap'
 						rel='stylesheet'
-          />
+					/>
+					<link
+						rel='icon'
+						type='image/svg+xml'
+						href='favicon.svg'
+					/>
+					<link
+						rel='icon'
+						type='image/png'
+						href='favicon.png'
+					></link>
 				</Head>
 				<body>
 					<Main />

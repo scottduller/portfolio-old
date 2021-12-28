@@ -9,18 +9,20 @@ module.exports = {
 		container: {
 			center: true,
 			padding: {
-				DEFAULT: '2.5rem',
-				// sm: '3rem',
-				// lg: '4rem',
-				// xl: '5rem',
-				// '2xl': '6rem',
+				DEFAULT: '2rem',
+				sm: '1rem',
+				md: '2rem',
+				lg: '4rem',
+				xl: '5rem',
+				'2xl': '6rem',
 			},
 		},
 		extend: {
 			colors: {
 				primary: '#F5DF4D',
-				secondary: '#48473f',
-				emphasis: '#4353A8',
+				secondary: '#292b2c',
+				tertiary: '#8d9295',
+				emphasis: '#343738',
 			},
 		},
 	},
