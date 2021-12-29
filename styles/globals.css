@@ -18,14 +18,6 @@
 		height: -webkit-fill-available;
 	}
 
-	a:hover {
-		cursor: pointer;
-	}
-
-	.hamburger:hover .hamburgerLine {
-		@apply bg-primary animate-pulse;
-	}
-
 	.her.heroBtn {
 		@apply px-6 py-3 border border-black rounded-[5px] betterhover:bg-opacity-20 transition-colors ease-in-out duration-200 cursor-pointer;
 	}
@@ -43,22 +35,6 @@
 		@apply hidden;
 	}
 
-	.hamburgerCheck:checked ~ span:nth-of-type(1) {
-		transform-origin: bottom;
-		transform: rotatez(-45deg) translate(-4px, 0px);
-	}
-
-	.hamburgerCheck:checked ~ span:nth-of-type(2) {
-		transform-origin: top;
-		transform: rotatez(45deg);
-	}
-
-	.hamburgerCheck:checked ~ span:nth-of-type(3) {
-		transform-origin: bottom;
-		width: 55%;
-		transform: translate(-13px, -4px) rotatez(-45deg);
-	}
-
 	.sidenav {
 		width: 0;
 		transition: 0.5s;
@@ -67,6 +43,7 @@
 	.sidenav.flex {
 		right: 0;
 	}
+
 	.logo {
 		@apply bg-white group-hover:bg-primary group-hover:animate-pulse transition;
 		-webkit-mask: url('/logo.svg') no-repeat center;
@@ -79,42 +56,65 @@
 		@apply flex flex-row-reverse justify-end;
 	}
 
-	.headerContainer:hover ~ .headerContainer .headerStyling {
-		@apply text-primary opacity-50;
-	}
-
 	.headerStyling {
 		@apply inline-block text-white text-4xl sm:text-6xl lg:text-8xl font-black transition duration-500 ease-out;
-	}
-
-	.headerStyling:hover {
-		@apply translate-y-[-25px] scale-150 animate-pulse;
-	}
-
-	.headerStyling:hover,
-	.headerStyling:hover ~ .headerStyling {
-		@apply text-primary;
-	}
-
-	.headerStyling:hover ~ .headerStyling {
-		@apply opacity-50;
-	}
-
-	.headerStyling:hover + .headerStyling {
-		@apply opacity-75 translate-y-[-10px];
-	}
-
-	.headerStyling:hover + .headerStyling + .headerStyling {
-		@apply opacity-75 translate-y-[-5px];
 	}
 
 	.ctaBtn {
 		@apply border-primary border-4 transition duration-500 ease-in-out text-primary font-black tracking-widest py-2 px-6 hover:bg-primary hover:bg-opacity-30 hover:text-primary hover:scale-110 hover:shadow-none hover:translate-x-[10px];
 	}
 
-	.ctaBtn:hover {
-		box-shadow: #d5c34a 0px 5px 0px -2.5px,
-			#b5a746 0px 10px 0px -5px, #958b43 0px 15px 0px -7.5px,
-			#746f3f 0px 20px 0px -10px, #54533c 0px 25px 0px -12.5px;
+	@media (hover: hover) {
+		a:hover {
+			cursor: pointer;
+		}
+
+		.hamburger:hover .hamburgerLine {
+			@apply bg-primary animate-pulse;
+		}
+		.hamburgerCheck:checked ~ span:nth-of-type(1) {
+			transform-origin: bottom;
+			transform: rotatez(-45deg) translate(-4px, 0px);
+		}
+
+		.hamburgerCheck:checked ~ span:nth-of-type(2) {
+			transform-origin: top;
+			transform: rotatez(45deg);
+		}
+
+		.hamburgerCheck:checked ~ span:nth-of-type(3) {
+			transform-origin: bottom;
+			width: 55%;
+			transform: translate(-13px, -4px) rotatez(-45deg);
+		}
+		.headerContainer:hover ~ .headerContainer .headerStyling {
+			@apply text-primary opacity-50;
+		}
+		.headerStyling:hover {
+			@apply translate-y-[-25px] scale-150 animate-pulse;
+		}
+
+		.headerStyling:hover,
+		.headerStyling:hover ~ .headerStyling {
+			@apply text-primary;
+		}
+
+		.headerStyling:hover ~ .headerStyling {
+			@apply opacity-50;
+		}
+
+		.headerStyling:hover + .headerStyling {
+			@apply opacity-75 translate-y-[-10px];
+		}
+
+		.headerStyling:hover + .headerStyling + .headerStyling {
+			@apply opacity-75 translate-y-[-5px];
+		}
+		.ctaBtn:hover {
+			box-shadow: #d5c34a 0px 5px 0px -2.5px,
+				#b5a746 0px 10px 0px -5px, #958b43 0px 15px 0px -7.5px,
+				#746f3f 0px 20px 0px -10px,
+				#54533c 0px 25px 0px -12.5px;
+		}
 	}
 }
