@@ -64,31 +64,32 @@
 		@apply border-primary border-4 transition duration-500 ease-in-out text-primary font-black tracking-widest py-2 px-6 hover:bg-primary hover:bg-opacity-30 hover:text-primary hover:scale-110 hover:shadow-none hover:translate-x-[10px];
 	}
 
+	.hamburgerCheck:checked ~ span:nth-of-type(1) {
+		transform-origin: bottom;
+		transform: rotatez(-45deg) translate(-4px, 0px);
+	}
+
+	.hamburgerCheck:checked ~ span:nth-of-type(2) {
+		transform-origin: top;
+		transform: rotatez(45deg);
+	}
+
+	.hamburgerCheck:checked ~ span:nth-of-type(3) {
+		transform-origin: bottom;
+		width: 55%;
+		transform: translate(-13px, -4px) rotatez(-45deg);
+	}
+
 	@media (hover: hover) and (pointer: fine) {
+		.headerContainer:hover ~ .headerContainer .headerStyling {
+			@apply text-primary opacity-50;
+		}
 		a:hover {
 			cursor: pointer;
 		}
 
 		.hamburger:hover .hamburgerLine {
 			@apply bg-primary animate-pulse;
-		}
-		.hamburgerCheck:checked ~ span:nth-of-type(1) {
-			transform-origin: bottom;
-			transform: rotatez(-45deg) translate(-4px, 0px);
-		}
-
-		.hamburgerCheck:checked ~ span:nth-of-type(2) {
-			transform-origin: top;
-			transform: rotatez(45deg);
-		}
-
-		.hamburgerCheck:checked ~ span:nth-of-type(3) {
-			transform-origin: bottom;
-			width: 55%;
-			transform: translate(-13px, -4px) rotatez(-45deg);
-		}
-		.headerContainer:hover ~ .headerContainer .headerStyling {
-			@apply text-primary opacity-50;
 		}
 		.headerStyling:hover {
 			@apply translate-y-[-25px] scale-150 animate-pulse;
