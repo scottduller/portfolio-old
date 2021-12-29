@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import Head from 'next/head';
 import { useState } from 'react';
+import Hero from '../components/Hero';
 const Index = () => {
 	const [active, setActive] = useState(false);
 
@@ -9,7 +10,10 @@ const Index = () => {
 			<Head>
 				<title>Scott Duller | Full Stack Web Developer</title>
 			</Head>
-			<Header active={active} setActive={setActive}></Header>
+			<div className='container'>
+				<Hero />
+			</div>
+			<Header active={active} setActive={setActive} />
 		</div>
 	);
 };

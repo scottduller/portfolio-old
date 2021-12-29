@@ -5,8 +5,6 @@
 * {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
-	font-weight: 900;
-	color: white;
 }
 
 @layer components {
@@ -16,6 +14,7 @@
 	}
 
 	html {
+		@apply bg-emphasis;
 		height: -webkit-fill-available;
 	}
 
@@ -24,7 +23,7 @@
 	}
 
 	.hamburger:hover .hamburgerLine {
-		@apply bg-tertiary;
+		@apply bg-primary animate-pulse;
 	}
 
 	.her.heroBtn {
@@ -67,5 +66,63 @@
 
 	.sidenav.flex {
 		right: 0;
+	}
+	.logo {
+		@apply bg-white group-hover:bg-primary group-hover:animate-pulse transition;
+		-webkit-mask: url('/logo.svg') no-repeat center;
+		mask: url('/logo.svg') no-repeat center;
+		height: 50px;
+		width: 50px;
+	}
+
+	.headerContainer {
+		@apply flex flex-row-reverse justify-end;
+	}
+
+	.headerContainer:hover ~ .headerContainer .headerStyling {
+		@apply text-primary opacity-50;
+	}
+
+	.headerStyling {
+		@apply inline-block text-white text-4xl sm:text-6xl lg:text-8xl font-black transition duration-500 ease-out;
+	}
+
+	.headerStyling:hover {
+		@apply translate-y-[-25px] scale-150 animate-pulse;
+	}
+
+	.headerStyling:hover,
+	.headerStyling:hover ~ .headerStyling {
+		@apply text-primary;
+	}
+
+	.headerStyling:hover ~ .headerStyling {
+		@apply opacity-50;
+	}
+
+	.headerStyling:hover + .headerStyling {
+		@apply opacity-75 translate-y-[-10px];
+	}
+
+	.headerStyling:hover + .headerStyling + .headerStyling {
+		@apply opacity-75 translate-y-[-5px];
+	}
+
+	/* .headerStyling:hover {
+		@apply translate-y-[-10px];
+	}
+
+	.headerStyling:hover ~ span {
+		@apply text-primary opacity-50 transition-colors ease-in-out duration-500;
+	} */
+
+	.ctaBtn {
+		@apply border-primary border-4 transition duration-500 ease-in-out text-primary font-black tracking-widest py-2 px-6 hover:bg-primary hover:bg-opacity-30 hover:text-primary hover:scale-110 hover:shadow-none hover:translate-x-[10px];
+	}
+
+	.ctaBtn:hover {
+		box-shadow: #d5c34a 0px 5px 0px -2.5px,
+			#b5a746 0px 10px 0px -5px, #958b43 0px 15px 0px -7.5px,
+			#746f3f 0px 20px 0px -10px, #54533c 0px 25px 0px -12.5px;
 	}
 }

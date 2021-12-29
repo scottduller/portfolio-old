@@ -21,22 +21,15 @@ const Header = (props: any) => {
 	return (
 		<div className='bg-secondary fixed w-screen select-none top-0 left-0 right-0'>
 			<header className='container  flex flex-row flex-wrap justify-between items-center py-4'>
-				<nav className='w-full relative flex flex-row justify-between items-center'>
+				<nav className='w-full relative flex flex-row justify-between items-center text-white'>
 					<a href=''>
-						<div className='flex gap-[20px] items-center '>
-							<Image
-								className='hover:opacity-50 transition-opacity'
-								src='/logo.svg'
-								alt=''
-								layout='fixed'
-								height={50}
-								width={50}
-							/>
-							<div className='hidden sm:flex flex-col'>
+						<div className='flex gap-[20px] items-center group'>
+							<div className='logo' />
+							<div className='hidden sm:flex flex-col font-black '>
 								<h1 className='text-lg'>
 									Scott Duller
 								</h1>
-								<span className='text-xs font-normal'>
+								<span className='text-xs font-normal opacity-75'>
 									Web Developer
 								</span>
 							</div>
@@ -117,27 +110,20 @@ const Header = (props: any) => {
 						></span>
 					</label>
 					<aside
-						className={`sidenav flex z-[9] justify-center items-center bg-emphasis overflow-x-hidden fixed top-0 bottom-0  h-screen ${
+						className={`sidenav flex z-[9] justify-center items-center bg-tertiary overflow-x-hidden fixed top-0 bottom-0  h-screen ${
 							props.active ? 'w-full sm:w-3/5' : 'w-0'
 						} md:hidden whitespace-nowrap`}
 						id='sidebar'
 					>
-						<nav className='w-full flex flex-col items-center justify-between '>
+						<nav className='w-full flex flex-col items-center justify-between text-white '>
 							<a className='mb-[50px]' href=''>
-								<div className='flex flex-col gap-[20px] items-center'>
-									<Image
-										className='hover:opacity-50 transition-opacity'
-										src='/logo.svg'
-										alt=''
-										layout='fixed'
-										height={50}
-										width={50}
-									/>
-									<div className='flex flex-col items-center'>
+								<div className='flex gap-[20px] items-center group'>
+									<div className='logo' />
+									<div className='hidden sm:flex flex-col font-black '>
 										<h1 className='text-lg'>
 											Scott Duller
 										</h1>
-										<span className='text-xs font-normal'>
+										<span className='text-xs font-normal opacity-75'>
 											Web Developer
 										</span>
 									</div>
