@@ -21,8 +21,6 @@
 		"react-gsap": "^3.2.1",
 		"react-icons": "^4.3.1",
 		"react-scrollmagic": "^2.3.0",
-		"react-sparkle": "^1.0.9",
-		"react-starfield-animation": "^1.0.1",
 		"scrollmagic": "^2.0.8",
 		"swr": "^1.0.1"
 	},
