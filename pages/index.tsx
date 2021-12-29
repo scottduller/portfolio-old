@@ -4,14 +4,16 @@ import {
 	disableBodyScroll,
 	enableBodyScroll,
 } from 'body-scroll-lock';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 const Index = () => {
 	const [active, setActive] = useState(false);
 
-	active
-		? disableBodyScroll(document.body)
-		: enableBodyScroll(document.body);
+	useEffect(() => {
+		active
+			? disableBodyScroll(document.body)
+			: enableBodyScroll(document.body);
+	}, [active]);
 
 	return (
 		<div>
