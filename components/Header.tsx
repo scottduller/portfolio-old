@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import {
-	FaFacebook,
-	FaFacebookF,
-	FaFacebookSquare,
-	FaGithub,
-	FaLinkedin,
-	FaLinkedinIn,
-} from 'react-icons/fa';
+import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
-const Header = (props: any) => {
+type Props = {
+	active: boolean;
+	setActive: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Header = ({ active, setActive }: Props) => {
 	const handleCheck = () => {
-		props.setActive(!props.active);
+		setActive(!active);
 	};
 
 	const handleNav = () => {
-		props.setActive(false);
+		setActive(false);
 	};
 
 	return (
@@ -91,31 +89,29 @@ const Header = (props: any) => {
 								className='hamburgerCheck'
 								type='checkbox'
 								id='check'
-								checked={props.active}
+								checked={active}
 								onChange={handleCheck}
 							/>
 							<span
 								className={`hamburgerLine w-2/4 ${
-									props.active && 'active'
+									active && 'active'
 								}`}
 							></span>
 							<span
 								className={`hamburgerLine w-full ${
-									props.active && 'active'
+									active && 'active'
 								}`}
 							></span>
 							<span
 								className={`hamburgerLine w-3/4 ${
-									props.active && 'active'
+									active && 'active'
 								}`}
 							></span>
 						</label>
 
 						<aside
 							className={`sidenav flex z-[9] justify-center items-center bg-tertiary overflow-x-hidden fixed top-0 bottom-0  h-screen ${
-								props.active
-									? 'w-full sm:w-3/5'
-									: 'w-0'
+								active ? 'w-full sm:w-3/5' : 'w-0'
 							} md:hidden whitespace-nowrap shadow-2xl`}
 							id='sidebar'
 						>

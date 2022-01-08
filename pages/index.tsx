@@ -36,6 +36,12 @@ const Index = () => {
 		<div>
 			<Head>
 				<title>Scott Duller | Full Stack Web Developer</title>
+				<script
+					src='https://platform.linkedin.com/badges/js/profile.js'
+					async
+					defer
+					type='text/javascript'
+				></script>
 			</Head>
 			<div className={`container ${active ? 'blur' : ''}`}>
 				{active && (
@@ -43,6 +49,22 @@ const Index = () => {
 				)}
 				<Hero />
 			</div>
+			<div
+				className='badge-base LI-profile-badge fixed bottom-3 right-[-2.75rem]'
+				data-locale='en_US'
+				data-size='medium'
+				data-theme='light'
+				data-type='VERTICAL'
+				data-vanity='scottduller'
+				data-version='v1'
+			>
+				<a
+					className='badge-base__link LI-simple-link'
+					href='https://uk.linkedin.com/in/scottduller?trk=profile-badge'
+        ></a>
+        
+			</div>
+
 			<Header active={active} setActive={setActive} />
 		</div>
 	);
