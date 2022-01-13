@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+type Props = {
 	textComponent: string;
 	textStyling: string;
 	letterStyling: string;
