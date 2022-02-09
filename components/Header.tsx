@@ -5,7 +5,7 @@ import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 type Props = {
 	active: boolean;
-	setActive: React.Dispatch<React.SetStateAction<boolean>>;
+	setActive: any;
 };
 
 const Header = ({ active, setActive }: Props) => {
@@ -112,7 +112,14 @@ const Header = ({ active, setActive }: Props) => {
 						</a>
 						<div className={navLinksContainer}>
 							<ul className={navLinks}>
-								<li className={navLink}>about</li>
+								<li className={navLink}>
+									<a
+										className='font-normal'
+										href='about'
+									>
+										about
+									</a>
+								</li>
 								<li className={navLink}>
 									<a
 										className='font-normal'
