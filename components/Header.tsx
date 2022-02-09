@@ -54,7 +54,7 @@ const Header = ({ active, setActive }: Props) => {
 	});
 	const sideNavContainer = classNames(
 		{ 'w-0': !active, 'w-full sm:w-3/5': active },
-		'sidenav flex z-[9] justify-center items-center bg-tertiary overflow-x-hidden fixed top-0 bottom-0  h-screen md:hidden whitespace-nowrap shadow-2xl '
+		'flex z-[9] justify-center items-center bg-tertiary overflow-x-hidden fixed top-0 bottom-0 right-0 h-screen md:hidden whitespace-nowrap shadow-2xl transition-[width] duration-500'
 	);
 	const sideNav = classNames(
 		'w-full flex flex-col items-center justify-between text-white '
@@ -110,22 +110,9 @@ const Header = ({ active, setActive }: Props) => {
 								</div>
 							</div>
 						</a>
-						<motion.div
-							initial='offscreen'
-							whileInView='onscreen'
-							viewport={{ once: true }}
-							className={navLinksContainer}
-						>
+						<div className={navLinksContainer}>
 							<ul className={navLinks}>
-								<li className={navLink}>
-									<motion.a
-										className='font-normal'
-										href='about'
-										variants={linkVariants}
-									>
-										about
-									</motion.a>
-								</li>
+								<li className={navLink}>about</li>
 								<li className={navLink}>
 									<a
 										className='font-normal'
@@ -143,7 +130,7 @@ const Header = ({ active, setActive }: Props) => {
 									</a>
 								</li>
 							</ul>
-						</motion.div>
+						</div>
 						<div className={navLinksContainer}>
 							<ul className={socialLinks}>
 								<li className={socialLink}>
