@@ -1,20 +1,17 @@
-import React from 'react';
+import classNames from 'classnames';
+import Head from 'next/head';
+import Contact from '../components/Contact';
 
 const contact = () => {
+	const section = classNames('h-screen w-full flex items-center');
+
 	return (
-		<div>
+		<>
 			<Head>
-				<title>Scott Duller | Full Stack Web Developer</title>
+				<title>Scott Duller | Contact Me</title>
 			</Head>
-			<div className={bodyContainer}>
-				<div
-					className={interactionBlock}
-					onClick={handleClickOff}
-				></div>
-				<Hero />
-			</div>
-			<Header active={active} setActive={setActive} />
-		</div>
+			<Contact />
+		</>
 	);
 };
 

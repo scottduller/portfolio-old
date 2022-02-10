@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { motion, Variants } from 'framer-motion';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import Link from 'next/link';
 
 type Props = {
 	active: boolean;
@@ -18,7 +19,7 @@ const Header = ({ active, setActive }: Props) => {
 	};
 
 	const wrapper = classNames(
-		'bg-secondary fixed w-screen select-none top-0 left-0 right-0'
+		'bg-secondary w-screen select-none top-0 left-0 right-0'
 	);
 	const container = classNames(
 		'container  flex flex-row flex-wrap justify-between items-center py-4'
@@ -38,7 +39,7 @@ const Header = ({ active, setActive }: Props) => {
 		'flex items-center p-0 m-0 list-none'
 	);
 	const navLink = classNames(
-		'relative my-0 mx-[10px] hover:opacity-50 transition-opacity'
+		'relative my-0 mx-[10px] hover:opacity-50 transition-opacity font-normal'
 	);
 	const socialLinks = classNames(
 		'flex justify-between items-center p-0 m-0 list-none'
@@ -97,7 +98,7 @@ const Header = ({ active, setActive }: Props) => {
 			<div className={wrapper}>
 				<header className={container}>
 					<nav className={nav}>
-						<a href=''>
+						<Link href='/' passHref>
 							<div className={logo}>
 								<div className='logo' />
 								<div className={logoContent}>
@@ -109,32 +110,21 @@ const Header = ({ active, setActive }: Props) => {
 									</span>
 								</div>
 							</div>
-						</a>
+						</Link>
 						<div className={navLinksContainer}>
 							<ul className={navLinks}>
 								<li className={navLink}>
-									<a
-										className='font-normal'
-										href='about'
-									>
-										about
-									</a>
+									<Link href='about'>about</Link>
 								</li>
 								<li className={navLink}>
-									<a
-										className='font-normal'
-										href='portfolio'
-									>
+									<Link href='portfolio'>
 										portfolio
-									</a>
+									</Link>
 								</li>
 								<li className={navLink}>
-									<a
-										className='font-normal'
-										href='contact'
-									>
+									<Link href='contact'>
 										contact
-									</a>
+									</Link>
 								</li>
 							</ul>
 						</div>

@@ -4,9 +4,7 @@ import React from 'react';
 import SplitText from './SplitText';
 
 const Hero = () => {
-	const section = classNames(
-		'h-screen w-full flex items-center py-[100px]'
-	);
+	const section = classNames('flex items-center');
 	const title = classNames('flex flex-col-reverse');
 	const tagLine = classNames('text-white ml-1 opacity-50 z-[-1]');
 
@@ -40,7 +38,7 @@ const Hero = () => {
 					Full-Stack Web Developer and Tinkerer
 				</p>
 				<div className='mb-10'></div>
-				<a href='/contact'>
+				<a href='contact'>
 					<motion.button
 						className='ctaBtn'
 						whileHover={{ scale: 1.1 }}

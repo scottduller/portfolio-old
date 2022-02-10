@@ -1,7 +1,15 @@
+import Head from 'next/head';
 import React from 'react';
 
 const portfolio = () => {
-	return <div>portfolio</div>;
+	return (
+		<>
+			<Head>
+				<title>Scott Duller | Portfolio</title>
+			</Head>
+			<h1>Portfolio</h1>
+		</>
+	);
 };
 
 export default portfolio;

@@ -10,6 +10,7 @@ import {
 } from 'body-scroll-lock';
 import classNames from 'classnames';
 import Header from './Header';
+import Footer from './Footer';
 
 interface LayoutProps {
 	children: ReactNode;
@@ -45,19 +46,21 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
 		setActive(false);
 	};
 
-	const bodyContainer = classNames(
-		'container transition-all duration-500',
-		{
-			blur: active,
-		}
+	const wrapper = classNames(
+		'min-h-screen flex flex-col justify-between'
 	);
+
+	const bodyContainer = classNames('bodyContainer', {
+		blur: active,
+	});
 	const interactionBlock = classNames(
 		'fixed top-0 left-0 right-0 bottom-0 h-full',
 		{ hidden: !active }
 	);
 
 	return (
-		<div>
+		<div className={wrapper}>
+			<Header active={active} setActive={setActive} />
 			<div className={bodyContainer}>
 				<div
 					className={interactionBlock}
@@ -65,7 +68,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
 				></div>
 				{children}
 			</div>
-			<Header active={active} setActive={setActive} />
+			<Footer />
 		</div>
 	);
 };
