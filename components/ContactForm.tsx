@@ -1,11 +1,9 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent } from 'react';
 
-interface ContactFormProps {
-  
-}
- 
+interface ContactFormProps {}
+
 const ContactForm: FunctionComponent<ContactFormProps> = () => {
-  return (  );
-}
- 
+	return <p></p>;
+};
+
 export default ContactForm;
