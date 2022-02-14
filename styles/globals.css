@@ -16,7 +16,7 @@
 	}
 
 	html {
-		@apply bg-emphasis;
+		@apply bg-emphasis overflow-x-hidden;
 		height: -webkit-fill-available;
 	}
 
