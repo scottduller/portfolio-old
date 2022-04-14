@@ -59,17 +59,17 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
 	);
 
 	return (
-		<div className={wrapper}>
+		<>
 			<Header active={active} setActive={setActive} />
-			<div className={bodyContainer}>
+			{/* <div className={bodyContainer}>
 				<div
 					className={interactionBlock}
 					onClick={handleClickOff}
-				></div>
+				/>
 				{children}
 			</div>
-			<Footer />
-		</div>
+			<Footer /> */}
+		</>
 	);
 };
 

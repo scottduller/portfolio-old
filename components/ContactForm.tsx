@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
 import { FunctionComponent, useState } from 'react';
 
 interface ContactFormProps {}
@@ -94,14 +93,12 @@ const ContactForm: FunctionComponent<ContactFormProps> = () => {
 						/>
 					</label>
 					<a className='mt-3 md:ml-auto' href='contact '>
-						<motion.button
+						<button
 							className='ctaBtn w-full md:w-auto '
-							whileHover={{ scale: 1.1 }}
-							whileTap={{ scale: 0.9 }}
 							onClick={onSubmit}
 						>
 							Send email
-						</motion.button>
+						</button>
 					</a>
 				</div>
 			</div>

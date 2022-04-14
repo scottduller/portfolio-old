@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
 import React from 'react';
 import SplitText from './SplitText';
 
@@ -39,13 +38,9 @@ const Hero = () => {
 				</p>
 				<div className='mb-10'></div>
 				<a href='contact'>
-					<motion.button
-						className='ctaBtn'
-						whileHover={{ scale: 1.1 }}
-						whileTap={{ scale: 0.9 }}
-					>
+					<button className='ctaBtn'>
 						Get in Contact!
-					</motion.button>
+					</button>
 				</a>
 			</div>
 		</section>

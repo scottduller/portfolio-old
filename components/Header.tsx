@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import { motion, Variants } from 'framer-motion';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import Link from 'next/link';
+import { AppBar, Container } from '@mui/material';
 
 type Props = {
 	active: boolean;
@@ -79,173 +79,148 @@ const Header = ({ active, setActive }: Props) => {
 		'relative my-0 mx-[20px] hover:opacity-50 transition-opacity'
 	);
 
-	const linkVariants: Variants = {
-		offscreen: {
-			y: 300,
-		},
-		onscreen: {
-			y: 50,
-			transition: {
-				type: 'spring',
-				bounce: 0.4,
-				duration: 0.8,
-			},
-		},
-	};
-
 	return (
-		<>
-			<div className={wrapper}>
-				<header className={container}>
-					<nav className={nav}>
-						<Link href='/' passHref>
-							<div className={logo}>
-								<div className='logo' />
-								<div className={logoContent}>
-									<h1 className='text-lg'>
-										Scott Duller
-									</h1>
-									<span className={logoJob}>
-										Web Developer
-									</span>
-								</div>
+		<AppBar position='static'>
+			<Container>
+				<nav className={nav}>
+					<Link href='/' passHref>
+						<div className={logo}>
+							<div className='logo' />
+							<div className={logoContent}>
+								<h1 className='text-lg'>
+									Scott Duller
+								</h1>
+								<span className={logoJob}>
+									Web Developer
+								</span>
 							</div>
-						</Link>
-						<div className={navLinksContainer}>
-							<ul className={navLinks}>
-								<li className={navLink}>
-									<Link href='about'>about</Link>
-								</li>
-								<li className={navLink}>
-									<Link href='portfolio'>
-										portfolio
-									</Link>
-								</li>
-								<li className={navLink}>
-									<Link href='contact'>
-										contact
-									</Link>
-								</li>
-							</ul>
 						</div>
-						<div className={navLinksContainer}>
-							<ul className={socialLinks}>
-								<li className={socialLink}>
-									<a href='https://www.facebook.com/S.O.Duller'>
-										<FaFacebookF size='1.75em' />
-									</a>
-								</li>
-								<li className={socialLink}>
-									<a href='https://www.linkedin.com/in/scottduller/'>
-										<FaLinkedinIn size='1.75em' />
-									</a>
-								</li>
-								<li className={socialLink}>
-									<a href='https://github.com/scottduller'>
-										<FaGithub size='1.75em' />
-									</a>
-								</li>
-							</ul>
-						</div>
-						<label className={hamburger} htmlFor='check'>
-							<input
-								className='hamburgerCheck'
-								type='checkbox'
-								id='check'
-								checked={active}
-								onChange={handleCheck}
-							/>
-							<span
-								className={`${hamburgerLine} w-2/4`}
-							></span>
-							<span
-								className={`${hamburgerLine} w-full`}
-							></span>
-							<span
-								className={`${hamburgerLine} w-3/4`}
-							></span>
-						</label>
-
-						<aside
-							className={sideNavContainer}
-							id='sidebar'
-						>
-							<nav className={sideNav}>
-								<a className='mb-[50px]' href=''>
-									<div className={sideLogo}>
-										<div className='logo' />
-										<div
-											className={
-												sideLogoContent
-											}
-										>
-											<h1 className='text-lg'>
-												Scott Duller
-											</h1>
-											<span className={logoJob}>
-												Web Developer
-											</span>
-										</div>
-									</div>
+					</Link>
+					<div className={navLinksContainer}>
+						<ul className={navLinks}>
+							<li className={navLink}>
+								<Link href='about'>about</Link>
+							</li>
+							<li className={navLink}>
+								<Link href='portfolio'>
+									portfolio
+								</Link>
+							</li>
+							<li className={navLink}>
+								<Link href='contact'>contact</Link>
+							</li>
+						</ul>
+					</div>
+					<div className={navLinksContainer}>
+						<ul className={socialLinks}>
+							<li className={socialLink}>
+								<a href='https://www.facebook.com/S.O.Duller'>
+									<FaFacebookF size='1.75em' />
 								</a>
-								<ul className={sideLinks}>
-									<li className={sideLink}>
-										<a
-											href='about'
-											onClick={handleNav}
-										>
-											about
-										</a>
-									</li>
-									<li className={sideLink}>
-										<a
-											href='portfolio'
-											onClick={handleNav}
-										>
-											portfolio
-										</a>
-									</li>
-									<li className={sideLink}>
-										<a
-											href='contact'
-											onClick={handleNav}
-										>
-											contact
-										</a>
-									</li>
-								</ul>
-								<ul className={sideSocials}>
-									<li className={sideSocial}>
-										<a
-											onClick={handleNav}
-											href='https://www.facebook.com/S.O.Duller'
-										>
-											<FaFacebookF size='1.5em' />
-										</a>
-									</li>
-									<li className={sideSocial}>
-										<a
-											onClick={handleNav}
-											href='https://www.linkedin.com/in/scottduller/'
-										>
-											<FaLinkedinIn size='1.5em' />
-										</a>
-									</li>
-									<li className={sideSocial}>
-										<a
-											onClick={handleNav}
-											href='https://github.com/scottduller'
-										>
-											<FaGithub size='1.5em' />
-										</a>
-									</li>
-								</ul>
-							</nav>
-						</aside>
-					</nav>
-				</header>
-			</div>
-		</>
+							</li>
+							<li className={socialLink}>
+								<a href='https://www.linkedin.com/in/scottduller/'>
+									<FaLinkedinIn size='1.75em' />
+								</a>
+							</li>
+							<li className={socialLink}>
+								<a href='https://github.com/scottduller'>
+									<FaGithub size='1.75em' />
+								</a>
+							</li>
+						</ul>
+					</div>
+					<label className={hamburger} htmlFor='check'>
+						<input
+							className='hamburgerCheck'
+							type='checkbox'
+							id='check'
+							checked={active}
+							onChange={handleCheck}
+						/>
+						<span
+							className={`${hamburgerLine} w-2/4`}
+						></span>
+						<span
+							className={`${hamburgerLine} w-full`}
+						></span>
+						<span
+							className={`${hamburgerLine} w-3/4`}
+						></span>
+					</label>
+
+					{/* <aside className={sideNavContainer} id='sidebar'>
+						<nav className={sideNav}>
+							<a className='mb-[50px]' href=''>
+								<div className={sideLogo}>
+									<div className='logo' />
+									<div className={sideLogoContent}>
+										<h1 className='text-lg'>
+											Scott Duller
+										</h1>
+										<span className={logoJob}>
+											Web Developer
+										</span>
+									</div>
+								</div>
+							</a>
+							<ul className={sideLinks}>
+								<li className={sideLink}>
+									<a
+										href='about'
+										onClick={handleNav}
+									>
+										about
+									</a>
+								</li>
+								<li className={sideLink}>
+									<a
+										href='portfolio'
+										onClick={handleNav}
+									>
+										portfolio
+									</a>
+								</li>
+								<li className={sideLink}>
+									<a
+										href='contact'
+										onClick={handleNav}
+									>
+										contact
+									</a>
+								</li>
+							</ul>
+							<ul className={sideSocials}>
+								<li className={sideSocial}>
+									<a
+										onClick={handleNav}
+										href='https://www.facebook.com/S.O.Duller'
+									>
+										<FaFacebookF size='1.5em' />
+									</a>
+								</li>
+								<li className={sideSocial}>
+									<a
+										onClick={handleNav}
+										href='https://www.linkedin.com/in/scottduller/'
+									>
+										<FaLinkedinIn size='1.5em' />
+									</a>
+								</li>
+								<li className={sideSocial}>
+									<a
+										onClick={handleNav}
+										href='https://github.com/scottduller'
+									>
+										<FaGithub size='1.5em' />
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</aside> */}
+				</nav>
+			</Container>
+		</AppBar>
 	);
 };
 
