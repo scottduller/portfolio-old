@@ -1,16 +1,11 @@
-import classNames from 'classnames';
 import React from 'react';
 import SplitText from './SplitText';
 
 const Hero = () => {
-	const section = classNames('flex items-center');
-	const title = classNames('flex flex-col-reverse');
-	const tagLine = classNames('text-white ml-1 opacity-50 z-[-1]');
-
 	return (
-		<section className={section}>
+		<section>
 			<div>
-				<h1 className={title}>
+				<h1>
 					<SplitText
 						textComponent='Web&nbsp;Developer'
 						textStyling='headerContainer'
@@ -33,9 +28,7 @@ const Hero = () => {
 					<div className='mb-1'></div>
 				</h1>
 				<div className='mb-4'></div>
-				<p className={tagLine}>
-					Full-Stack Web Developer and Tinkerer
-				</p>
+				<p>Full-Stack Web Developer and Tinkerer</p>
 				<div className='mb-10'></div>
 				<a href='contact'>
 					<button className='ctaBtn'>

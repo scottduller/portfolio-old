@@ -8,7 +8,6 @@ import {
 	disableBodyScroll,
 	enableBodyScroll,
 } from 'body-scroll-lock';
-import classNames from 'classnames';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -45,18 +44,6 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
 	const handleClickOff = () => {
 		setActive(false);
 	};
-
-	const wrapper = classNames(
-		'min-h-screen flex flex-col justify-between'
-	);
-
-	const bodyContainer = classNames('bodyContainer', {
-		blur: active,
-	});
-	const interactionBlock = classNames(
-		'fixed top-0 left-0 right-0 bottom-0 h-full',
-		{ hidden: !active }
-	);
 
 	return (
 		<>
