@@ -1,252 +1,155 @@
-import React from 'react';
-import classNames from 'classnames';
-import { motion, Variants } from 'framer-motion';
-import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
+import {
+  FaFacebookSquare,
+  FaGithub,
+  FaLinkedin,
+  FaLinkedinIn,
+} from 'react-icons/fa';
+import { HiSun, HiMoon } from 'react-icons/hi';
 
-type Props = {
-	active: boolean;
-	setActive: any;
+type NavLinkProps = {
+  page: string;
 };
 
-const Header = ({ active, setActive }: Props) => {
-	const handleCheck = () => {
-		setActive(!active);
-	};
+type HeaderProps = {
+  active: boolean;
+  setActive: any;
+};
 
-	const handleNav = () => {
-		setActive(false);
-	};
+const pages = ['About', 'Projects', 'Contact', 'Blog'];
 
-	const wrapper = classNames(
-		'bg-secondary w-screen select-none top-0 left-0 right-0'
-	);
-	const container = classNames(
-		'container  flex flex-row flex-wrap justify-between items-center py-4'
-	);
-	const nav = classNames(
-		'w-full relative flex flex-row justify-between items-center text-white'
-	);
-	const logo = classNames('flex gap-[20px] items-center group');
-	const logoContent = classNames(
-		'hidden sm:flex flex-col font-black'
-	);
-	const logoJob = classNames('text-xs font-normal opacity-75');
-	const navLinksContainer = classNames(
-		'hidden md:flex items-center'
-	);
-	const navLinks = classNames(
-		'flex items-center p-0 m-0 list-none'
-	);
-	const navLink = classNames(
-		'relative my-0 mx-[10px] hover:opacity-50 transition-opacity font-normal'
-	);
-	const socialLinks = classNames(
-		'flex justify-between items-center p-0 m-0 list-none'
-	);
-	const socialLink = classNames(
-		'relative my-auto mx-[10px] hover:opacity-50 transition-opacity'
-	);
-	const hamburger = classNames(
-		'hamburger relative flex md:hidden flex-col hover: w-[50px] cursor-pointer py-[10px] pl-[20px]  z-[10]'
-	);
-	const hamburgerLine = classNames('hamburgerLine', {
-		active: active,
-	});
-	const sideNavContainer = classNames(
-		{ 'translate-x-full': !active, 'translate-x-0': active },
-		'flex w-full sm:w-3/5 z-[9] justify-center items-center bg-tertiary overflow-x-hidden fixed top-0 right-0 h-screen md:hidden whitespace-nowrap shadow-2xl transition-transform duration-500'
-	);
-	const sideNav = classNames(
-		'w-full flex flex-col items-center justify-between text-white '
-	);
-	const sideLogo = classNames(
-		'flex flex-col sm:flex-row gap-[20px] items-center group'
-	);
-	const sideLogoContent = classNames(
-		'flex flex-col font-black items-center sm:items-start'
-	);
-	const sideLinks = classNames(
-		'flex flex-col justify-between items-center p-0 m-0 mb-10 list-none'
-	);
-	const sideLink = classNames(
-		'relative mt-0 mb-[40px] mx-auto hover:opacity-50 transition-opacity'
-	);
-	const sideSocials = classNames(
-		'flex flex-row justify-center items-center p-0 m-0 list-none'
-	);
-	const sideSocial = classNames(
-		'relative my-0 mx-[20px] hover:opacity-50 transition-opacity'
-	);
+const NavLink = ({ page }: NavLinkProps) => {
+  const link = '/' + page;
 
-	const linkVariants: Variants = {
-		offscreen: {
-			y: 300,
-		},
-		onscreen: {
-			y: 50,
-			transition: {
-				type: 'spring',
-				bounce: 0.4,
-				duration: 0.8,
-			},
-		},
-	};
+  return (
+    <li className="hover:opacity-75 font-medium" key={page}>
+      <Link href={link} passHref>
+        {page}
+      </Link>
+    </li>
+  );
+};
 
-	return (
-		<>
-			<div className={wrapper}>
-				<header className={container}>
-					<nav className={nav}>
-						<Link href='/' passHref>
-							<div className={logo}>
-								<div className='logo' />
-								<div className={logoContent}>
-									<h1 className='text-lg'>
-										Scott Duller
-									</h1>
-									<span className={logoJob}>
-										Web Developer
-									</span>
-								</div>
-							</div>
-						</Link>
-						<div className={navLinksContainer}>
-							<ul className={navLinks}>
-								<li className={navLink}>
-									<Link href='about'>about</Link>
-								</li>
-								<li className={navLink}>
-									<Link href='portfolio'>
-										portfolio
-									</Link>
-								</li>
-								<li className={navLink}>
-									<Link href='contact'>
-										contact
-									</Link>
-								</li>
-							</ul>
-						</div>
-						<div className={navLinksContainer}>
-							<ul className={socialLinks}>
-								<li className={socialLink}>
-									<a href='https://www.facebook.com/S.O.Duller'>
-										<FaFacebookF size='1.75em' />
-									</a>
-								</li>
-								<li className={socialLink}>
-									<a href='https://www.linkedin.com/in/scottduller/'>
-										<FaLinkedinIn size='1.75em' />
-									</a>
-								</li>
-								<li className={socialLink}>
-									<a href='https://github.com/scottduller'>
-										<FaGithub size='1.75em' />
-									</a>
-								</li>
-							</ul>
-						</div>
-						<label className={hamburger} htmlFor='check'>
-							<input
-								className='hamburgerCheck'
-								type='checkbox'
-								id='check'
-								checked={active}
-								onChange={handleCheck}
-							/>
-							<span
-								className={`${hamburgerLine} w-2/4`}
-							></span>
-							<span
-								className={`${hamburgerLine} w-full`}
-							></span>
-							<span
-								className={`${hamburgerLine} w-3/4`}
-							></span>
-						</label>
+const Header = ({ active, setActive }: HeaderProps) => {
+  const { systemTheme, theme, setTheme } = useTheme();
 
-						<aside
-							className={sideNavContainer}
-							id='sidebar'
-						>
-							<nav className={sideNav}>
-								<a className='mb-[50px]' href=''>
-									<div className={sideLogo}>
-										<div className='logo' />
-										<div
-											className={
-												sideLogoContent
-											}
-										>
-											<h1 className='text-lg'>
-												Scott Duller
-											</h1>
-											<span className={logoJob}>
-												Web Developer
-											</span>
-										</div>
-									</div>
-								</a>
-								<ul className={sideLinks}>
-									<li className={sideLink}>
-										<a
-											href='about'
-											onClick={handleNav}
-										>
-											about
-										</a>
-									</li>
-									<li className={sideLink}>
-										<a
-											href='portfolio'
-											onClick={handleNav}
-										>
-											portfolio
-										</a>
-									</li>
-									<li className={sideLink}>
-										<a
-											href='contact'
-											onClick={handleNav}
-										>
-											contact
-										</a>
-									</li>
-								</ul>
-								<ul className={sideSocials}>
-									<li className={sideSocial}>
-										<a
-											onClick={handleNav}
-											href='https://www.facebook.com/S.O.Duller'
-										>
-											<FaFacebookF size='1.5em' />
-										</a>
-									</li>
-									<li className={sideSocial}>
-										<a
-											onClick={handleNav}
-											href='https://www.linkedin.com/in/scottduller/'
-										>
-											<FaLinkedinIn size='1.5em' />
-										</a>
-									</li>
-									<li className={sideSocial}>
-										<a
-											onClick={handleNav}
-											href='https://github.com/scottduller'
-										>
-											<FaGithub size='1.5em' />
-										</a>
-									</li>
-								</ul>
-							</nav>
-						</aside>
-					</nav>
-				</header>
-			</div>
-		</>
-	);
+  const handleActive = () => {
+    setActive(!active);
+  };
+
+  const renderThemeSwitch = () => {
+    return (
+      <label className="group relative flex cursor-pointer items-center justify-between p-2 text-xl">
+        <HiSun className="h-8 w-10 text-yellow-500 " />
+        <input
+          type="checkbox"
+          className="peer hidden h-full  -translate-x-1/2 rounded-md"
+          checked={theme === 'dark'}
+          onChange={() => {
+            console.log(theme);
+            theme === 'dark' ? setTheme('light') : setTheme('dark');
+          }}
+        />
+        <span className="mx flex h-6 w-12 flex-shrink-0 items-center rounded-full bg-gray-300 p-1 duration-300 ease-in-out after:h-4 after:w-4 after:rounded-full after:bg-white after:shadow-md after:duration-300 group-hover:after:translate-x-1 peer-checked:bg-gray-600 peer-checked:after:translate-x-6"></span>
+        <HiMoon className="mb-1 ml-1 h-8 w-10 text-black dark:text-white " />
+      </label>
+    );
+  };
+
+  return (
+    <header>
+      <nav className="flex items-center justify-between px-4 py-4 transition-all duration-300 md:px-10">
+        <Link href="/" passHref>
+          <div className="group flex cursor-pointer flex-row gap-2">
+            <div className="logo" />
+            <div className="my-[4px] border-r border-black dark:border-white" />
+            <div>
+              <h1 className="text-2xl font-bold leading-none">Scott Duller</h1>
+              <span className="text-xs ">Web Developer</span>
+            </div>
+          </div>
+        </Link>
+        <ul className="hidden flex-grow justify-center gap-6 md:flex">
+          {pages.map((page) => {
+            return NavLink({ page });
+          })}
+        </ul>
+        <div
+          className={`z-40 cursor-pointer space-y-2 transition-all duration-300 ease-in-out md:hidden`}
+          onClick={handleActive}
+        >
+          <span
+            className={`${
+              active &&
+              'origin-bottom translate-x-[2px] translate-y-[4px] rotate-45'
+            } ease-[cubic-bezier(0.68, -0.6, 0.32, 1.6)] block h-0.5 w-4 rounded-[10px] bg-black transition-transform duration-[400ms] dark:bg-white`}
+          ></span>
+          <span
+            className={`${
+              active && 'origin-top -rotate-45'
+            } ease-[cubic-bezier(0.68, -0.6, 0.32, 1.6)] block h-0.5 w-8 rounded-[10px] bg-black transition-transform duration-[400ms] dark:bg-white`}
+          ></span>
+          <span
+            className={`${
+              active &&
+              'origin-bottom translate-x-[6px] translate-y-[-8px] rotate-45'
+            } ease-[cubic-bezier(0.68, -0.6, 0.32, 1.6)] block h-0.5 w-6 rounded-[10px] bg-black transition-transform duration-[400ms] dark:bg-white`}
+          ></span>
+        </div>
+        <ul className="hidden items-center gap-4 md:flex">
+          <li className="hover:opacity-75">
+            <a href="https://www.facebook.com/S.O.Duller">
+              <FaFacebookSquare size="1.75em" />
+            </a>
+          </li>
+          <li className="hover:opacity-75">
+            <a href="https://www.linkedin.com/in/scottduller/">
+              <FaLinkedin size="1.75em" />
+            </a>
+          </li>
+          <li className="hover:opacity-75">
+            <a href="https://github.com/scottduller">
+              <FaGithub size="1.75em" />
+            </a>
+          </li>
+          <li>{renderThemeSwitch()}</li>
+        </ul>
+        <div
+          className={`${
+            active ? 'z-10 opacity-50' : '-z-10 opacity-0'
+          } absolute inset-0 h-screen w-screen bg-black  transition-all duration-300 ease-out`}
+          onClick={() => {
+            setActive(false);
+          }}
+        />
+        <aside
+          className={`fixed top-0 right-0 z-30 flex h-screen w-screen transform flex-col items-center overflow-auto bg-white py-10 drop-shadow-xl transition duration-500 ease-in-out dark:bg-neutral-900 sm:w-96 ${
+            active ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <Link href="/" passHref>
+            <div className="group flex cursor-pointer flex-col gap-2">
+              <div className="logo" />
+              <div className="flex flex-col items-center">
+                <h1 className="text-2xl font-bold leading-none">
+                  Scott Duller
+                </h1>
+                <span className="text-xs">Web Developer</span>
+              </div>
+            </div>
+          </Link>
+          <ul className="mt-10 flex flex-grow flex-col items-center gap-8">
+            {pages.map((page) => {
+              return NavLink({ page });
+            })}
+          </ul>
+          {renderThemeSwitch()}
+        </aside>
+      </nav>
+    </header>
+  );
 };
 
 export default Header;
