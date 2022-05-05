@@ -5,6 +5,7 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    typography: (theme) => ({}),
     extend: {
       container: {
         center: true,
@@ -15,5 +16,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

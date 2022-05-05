@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import {
@@ -13,27 +13,30 @@ type NavLinkProps = {
   page: string;
 };
 
-type HeaderProps = {
-  active: boolean;
-  setActive: any;
-};
-
-const pages = ['About', 'Projects', 'Contact', 'Blog'];
+const pages = ['about', 'projects', 'contact', 'blog'];
 
 const NavLink = ({ page }: NavLinkProps) => {
   const link = '/' + page;
 
   return (
-    <li className="hover:opacity-75 font-medium" key={page}>
+    <li
+      className="font-medium transition-transform hover:-translate-y-0.5 hover:opacity-75"
+      key={page}
+    >
       <Link href={link} passHref>
-        {page}
+        {page.charAt(0).toUpperCase() + page.slice(1)}
       </Link>
     </li>
   );
 };
 
-const Header = ({ active, setActive }: HeaderProps) => {
+const Header = ({ visible }) => {
+  const [active, setActive] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    if (!visible) setActive(false);
+  }, [visible]);
 
   const handleActive = () => {
     setActive(!active);
@@ -48,8 +51,7 @@ const Header = ({ active, setActive }: HeaderProps) => {
           className="peer hidden h-full  -translate-x-1/2 rounded-md"
           checked={theme === 'dark'}
           onChange={() => {
-            console.log(theme);
-            theme === 'dark' ? setTheme('light') : setTheme('dark');
+            setTheme(theme === 'dark' ? 'light' : 'dark');
           }}
         />
         <span className="mx flex h-6 w-12 flex-shrink-0 items-center rounded-full bg-gray-300 p-1 duration-300 ease-in-out after:h-4 after:w-4 after:rounded-full after:bg-white after:shadow-md after:duration-300 group-hover:after:translate-x-1 peer-checked:bg-gray-600 peer-checked:after:translate-x-6"></span>
@@ -59,8 +61,12 @@ const Header = ({ active, setActive }: HeaderProps) => {
   };
 
   return (
-    <header>
-      <nav className="flex items-center justify-between px-4 py-4 transition-all duration-300 md:px-10">
+    <header
+      className={`fixed w-full transition-all duration-[1.5s] ${
+        visible ? 'md:top-0 md:opacity-100' : 'md:-top-full md:opacity-0'
+      }`}
+    >
+      <nav className=" flex items-center justify-between px-4 py-4 transition-all duration-300 md:px-10">
         <Link href="/" passHref>
           <div className="group flex cursor-pointer flex-row gap-2">
             <div className="logo" />
@@ -83,7 +89,7 @@ const Header = ({ active, setActive }: HeaderProps) => {
           <span
             className={`${
               active &&
-              'origin-bottom translate-x-[2px] translate-y-[4px] rotate-45'
+              'origin-bottom translate-x-[3px] translate-y-[4px] rotate-45'
             } ease-[cubic-bezier(0.68, -0.6, 0.32, 1.6)] block h-0.5 w-4 rounded-[10px] bg-black transition-transform duration-[400ms] dark:bg-white`}
           ></span>
           <span
@@ -94,7 +100,7 @@ const Header = ({ active, setActive }: HeaderProps) => {
           <span
             className={`${
               active &&
-              'origin-bottom translate-x-[6px] translate-y-[-8px] rotate-45'
+              'origin-bottom translate-x-[8px] translate-y-[-7px] rotate-45'
             } ease-[cubic-bezier(0.68, -0.6, 0.32, 1.6)] block h-0.5 w-6 rounded-[10px] bg-black transition-transform duration-[400ms] dark:bg-white`}
           ></span>
         </div>

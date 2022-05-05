@@ -8,4 +8,54 @@
     -webkit-mask: url('/logo.svg') no-repeat center;
     mask: url('/logo.svg') no-repeat center;
   }
+
+  @media (hover: hover) and (pointer: fine) {
+    .headerContainer:hover ~ .headerContainer .headerStyling {
+      @apply opacity-50;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(-25px) scale(1.5);
+      }
+      25% {
+        transform: translateY(-35px) scale(1.5);
+      }
+      50% {
+        transform: translateY(-25px) scale(1.5);
+      }
+      75% {
+        transform: translateY(-15px) scale(1.5);
+      }
+      100% {
+        transform: translateY(-25px) scale(1.5);
+      }
+    }
+
+    .headerStyling:hover {
+      @apply transition-all;
+
+      animation-name: bounce;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    /* .headerStyling:hover,
+    .headerStyling:hover ~ .headerStyling {
+      @apply text-primary;
+    } */
+
+    .headerStyling:hover ~ .headerStyling {
+      @apply opacity-50;
+    }
+
+    .headerStyling:hover + .headerStyling {
+      @apply translate-y-[-10px] opacity-75;
+    }
+
+    .headerStyling:hover + .headerStyling + .headerStyling {
+      @apply translate-y-[-5px] opacity-75;
+    }
+  }
 }

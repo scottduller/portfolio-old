@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Header from '@components/Header';
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import {
   ApolloClient,
@@ -10,6 +10,8 @@ import {
 } from '@apollo/client';
 
 import { setContext } from '@apollo/client/link/context';
+import Layout from '@components/Layout';
+import Hero from '@components/Hero';
 
 type IndexProps = {
   pinnedRepos: Array<Object>;
@@ -17,11 +19,9 @@ type IndexProps = {
 };
 
 const Index: NextPage = ({ pinnedRepos, publicRepos }: IndexProps) => {
-  const [active, setActive] = useState(false);
-
   return (
     <>
-      <Header active={active} setActive={setActive} />
+      <Hero />
     </>
   );
 };
